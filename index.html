@@ -1130,7 +1130,7 @@
               Skicka några rader om vad du vill bygga, om du redan har bilder och om sidan ska
               ha meny, bokning eller flera undersidor. Jag kan ta fram ett första förslag snabbt.
             </p>
-            <form action="mailto:adriandayani778@gmail.com" method="post" enctype="text/plain">
+            <form id="project-form">
               <div class="form-row">
                 <label>
                   Namn eller företag
@@ -1232,5 +1232,28 @@
       <span>Adrian Studio</span>
       <span>Hemsidor för restauranger och företag</span>
     </footer>
+    <script>
+      const projectForm = document.querySelector("#project-form");
+
+      projectForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(projectForm);
+        const subject = "Ny projektidé från hemsidan";
+        const body = [
+          `Namn eller företag: ${data.get("namn")}`,
+          `E-post: ${data.get("epost")}`,
+          `Typ av verksamhet: ${data.get("verksamhet")}`,
+          `Känsla: ${data.get("kansla")}`,
+          "",
+          "Beskrivning:",
+          data.get("projekt"),
+        ].join("\n");
+
+        window.location.href = `mailto:adriandayani778@gmail.com?subject=${encodeURIComponent(
+          subject,
+        )}&body=${encodeURIComponent(body)}`;
+      });
+    </script>
   </body>
 </html>
