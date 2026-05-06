@@ -1066,6 +1066,7 @@
             <p class="lead">
               Priserna är startpunkter så det blir lättare att förstå nivån. Slutpriset beror
               på antal sidor, bilder, menystruktur, bokning och hur mycket innehåll som finns.
+              Abonnemanget är obligatoriskt för alla paket.
             </p>
           </div>
 
@@ -1074,7 +1075,7 @@
               <span class="pill">Start</span>
               <h3>Enkel närvaro</h3>
               <div class="price">fr. 1 490 kr</div>
-              <p class="price-note">+ 299 kr/mån</p>
+              <p class="price-note">+ 299 kr/mån, obligatoriskt</p>
               <p>För restauranger eller företag som behöver en ren sida snabbt.</p>
               <ul>
                 <li>En landningssida</li>
