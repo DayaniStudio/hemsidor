@@ -1083,7 +1083,7 @@
                 <li>Enkel meny eller tjänstelista</li>
                 <li>Mobilanpassning</li>
               </ul>
-              <a class="button secondary" href="#kontakt">Fråga om Start</a>
+              <a class="button secondary" href="#kontakt" data-package="Standard">Fråga om Start</a>
             </article>
 
             <article class="price-card featured">
@@ -1099,7 +1099,7 @@
                 <li>Bokningslänk eller formulär</li>
                 <li>Grundläggande lokal SEO</li>
               </ul>
-              <a class="button" href="#kontakt">Välj Pro</a>
+              <a class="button" href="#kontakt" data-package="Pro">Välj Pro</a>
             </article>
 
             <article class="price-card">
@@ -1115,7 +1115,7 @@
                 <li>Fler undersidor</li>
                 <li>Lanseringshjälp</li>
               </ul>
-              <a class="button secondary" href="#kontakt">Be om offert</a>
+              <a class="button secondary" href="#kontakt" data-package="Max">Be om offert</a>
             </article>
           </div>
         </div>
@@ -1153,16 +1153,25 @@
                   </select>
                 </label>
                 <label>
-                  Känsla
-                  <select name="kansla">
-                    <option>Varm och välkomnande</option>
-                    <option>Premium och elegant</option>
-                    <option>Modern och enkel</option>
-                    <option>Färgstark och energisk</option>
-                    <option>Jag vill ha förslag</option>
+                  Paket
+                  <select name="paket" id="package-select">
+                    <option>Standard</option>
+                    <option>Pro</option>
+                    <option>Max</option>
+                    <option>Jag är osäker</option>
                   </select>
                 </label>
               </div>
+              <label>
+                Känsla
+                <select name="kansla">
+                  <option>Varm och välkomnande</option>
+                  <option>Premium och elegant</option>
+                  <option>Modern och enkel</option>
+                  <option>Färgstark och energisk</option>
+                  <option>Jag vill ha förslag</option>
+                </select>
+              </label>
               <label>
                 Beskriv projektet
                 <textarea
@@ -1234,6 +1243,14 @@
     </footer>
     <script>
       const projectForm = document.querySelector("#project-form");
+      const packageSelect = document.querySelector("#package-select");
+      const packageButtons = document.querySelectorAll("[data-package]");
+
+      packageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          packageSelect.value = button.dataset.package;
+        });
+      });
 
       projectForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -1244,6 +1261,7 @@
           `Namn eller företag: ${data.get("namn")}`,
           `E-post: ${data.get("epost")}`,
           `Typ av verksamhet: ${data.get("verksamhet")}`,
+          `Paket: ${data.get("paket")}`,
           `Känsla: ${data.get("kansla")}`,
           "",
           "Beskrivning:",
