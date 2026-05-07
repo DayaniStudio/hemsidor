@@ -212,7 +212,13 @@
       .press-grid,
       .journal-grid,
       .package-grid,
-      .faq-grid {
+      .faq-grid,
+      .material-grid,
+      .studio-grid,
+      .detail-grid,
+      .client-grid,
+      .scope-grid,
+      .form-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -224,7 +230,13 @@
       .press,
       .journal,
       .package,
-      .faq {
+      .faq,
+      .material,
+      .studio,
+      .detail,
+      .client,
+      .scope,
+      .form-card {
         padding: 24px;
         background: var(--panel);
         border: 1px solid var(--line);
@@ -249,9 +261,46 @@
       .press p,
       .journal p,
       .package p,
-      .faq p {
+      .faq p,
+      .material p,
+      .studio p,
+      .detail p,
+      .client p,
+      .scope p,
+      .form-card p {
         color: var(--muted);
         line-height: 1.65;
+      }
+
+      .scope strong,
+      .client strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--gold);
+      }
+
+      .form-card label {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 14px;
+        color: #5f5a52;
+        font-weight: 800;
+      }
+
+      .form-card input,
+      .form-card select,
+      .form-card textarea {
+        width: 100%;
+        min-height: 46px;
+        padding: 11px 12px;
+        border: 1px solid rgba(17, 20, 19, 0.18);
+        border-radius: 8px;
+        font: inherit;
+      }
+
+      .form-card textarea {
+        min-height: 110px;
+        resize: vertical;
       }
 
       .project img {
@@ -347,6 +396,12 @@
         .journal-grid,
         .package-grid,
         .faq-grid,
+        .material-grid,
+        .studio-grid,
+        .detail-grid,
+        .client-grid,
+        .scope-grid,
+        .form-grid,
         .cta .section-inner {
           grid-template-columns: 1fr;
         }
@@ -376,6 +431,7 @@
         <a href="#koncept">Koncept</a>
         <a href="#projekt">Projekt</a>
         <a href="#tjanster">Tjänster</a>
+        <a href="#material">Material</a>
         <a href="#process">Process</a>
         <a href="#kontakt">Kontakt</a>
       </div>
@@ -438,6 +494,27 @@
         </div>
       </section>
 
+      <section class="section" id="material">
+        <div class="section-inner">
+          <p class="eyebrow">Materialbibliotek</p>
+          <h2>Material som håller över tid.</h2>
+          <div class="material-grid">
+            <article class="material">
+              <h3>Trä</h3>
+              <p>Ek, ask och valnöt används för värme, struktur och en naturlig tyngd i rummet.</p>
+            </article>
+            <article class="material">
+              <h3>Sten</h3>
+              <p>Kalksten och granit passar ytor där känslan ska vara lugn, gedigen och taktil.</p>
+            </article>
+            <article class="material">
+              <h3>Textil</h3>
+              <p>Gardiner, mattor och klädslar mjukar upp ljud och gör rummet mer levande.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="projekt">
         <div class="section-inner">
           <p class="eyebrow">Projekt</p>
@@ -457,6 +534,27 @@
               <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=82" alt="Ljus sovrumsmiljö" />
               <h3>Residens Norr</h3>
               <p>Rumsplanering, färgsättning och möbelval för ett lugnare hem.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-inner">
+          <p class="eyebrow">Detaljer i case</p>
+          <h2>Vad varje projekt kan visa.</h2>
+          <div class="detail-grid">
+            <article class="detail">
+              <h3>Utmaning</h3>
+              <p>Beskriv vad kunden behövde lösa: ljus, förvaring, flöde, akustik eller känsla.</p>
+            </article>
+            <article class="detail">
+              <h3>Lösning</h3>
+              <p>Visa hur material, möblering och prioriteringar skapade rätt riktning.</p>
+            </article>
+            <article class="detail">
+              <h3>Resultat</h3>
+              <p>Sammanfatta vad som blev bättre och varför kunden valde att gå vidare.</p>
             </article>
           </div>
         </div>
@@ -484,6 +582,33 @@
       </section>
 
       <section class="section">
+        <div class="section-inner split">
+          <div>
+            <p class="eyebrow">Studio</p>
+            <h2>Bakom Nordform.</h2>
+            <p class="lead">
+              En Premium-sida kan ge plats åt studiofilosofi, arbetssätt och människorna bakom
+              varumärket utan att startsidan känns överlastad.
+            </p>
+          </div>
+          <div class="studio-grid">
+            <article class="studio">
+              <h3>Grundare</h3>
+              <p>En kort personlig presentation som skapar förtroende innan första mötet.</p>
+            </article>
+            <article class="studio">
+              <h3>Samarbeten</h3>
+              <p>Hantverkare, snickerier och leverantörer kan lyftas som del av kvaliteten.</p>
+            </article>
+            <article class="studio">
+              <h3>Metod</h3>
+              <p>Förklara hur studion tar beslut kring funktion, budget och material.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="section-inner">
           <p class="eyebrow">Paket</p>
           <h2>Tre sätt att arbeta med studion.</h2>
@@ -502,6 +627,30 @@
               <strong>Offert</strong>
               <h3>Helhetsprojekt</h3>
               <p>Stöd från första idé till färdig miljö, inklusive styling och projektledning.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-inner">
+          <p class="eyebrow">Projektomfattning</p>
+          <h2>Vad som kan ingå i ett större uppdrag.</h2>
+          <div class="scope-grid">
+            <article class="scope">
+              <strong>01</strong>
+              <h3>Rum för rum</h3>
+              <p>Varje rum kan få egen prioritering, materiallista och tydlig beslutsordning.</p>
+            </article>
+            <article class="scope">
+              <strong>02</strong>
+              <h3>Budgetnivåer</h3>
+              <p>Förslag delas in efter måste, bör och kan vänta så projektet blir enklare att styra.</p>
+            </article>
+            <article class="scope">
+              <strong>03</strong>
+              <h3>Leverantörer</h3>
+              <p>Studion kan sammanställa inköp, hantverkare och alternativ i olika prisklasser.</p>
             </article>
           </div>
         </div>
@@ -567,6 +716,30 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section-inner">
+          <p class="eyebrow">Kundtyper</p>
+          <h2>För hem, studio och små kommersiella miljöer.</h2>
+          <div class="client-grid">
+            <article class="client">
+              <strong>Privata hem</strong>
+              <h3>Vardagsrum, kök och sovrum</h3>
+              <p>För kunder som vill få ihop stil, funktion och en tydlig plan utan att byta allt.</p>
+            </article>
+            <article class="client">
+              <strong>Butik och showroom</strong>
+              <h3>Miljöer som säljer</h3>
+              <p>Planering av flöde, produktzoner och detaljer som gör varumärket lättare att förstå.</p>
+            </article>
+            <article class="client">
+              <strong>Kontor och studio</strong>
+              <h3>Arbetsrum med känsla</h3>
+              <p>För mindre team som behöver en plats som känns professionell, varm och användbar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section alt">
         <div class="section-inner">
           <p class="eyebrow">Förtroende</p>
@@ -627,6 +800,42 @@
             <div class="contact-line"><span>Plats</span><strong>Göteborg</strong></div>
             <div class="contact-line"><span>Projektstart</span><strong>från 4 veckor</strong></div>
           </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="eyebrow">Projektbrief</p>
+          <h2>Exempel på mer avancerad kontaktsektion.</h2>
+          <div class="form-grid">
+            <form class="form-card contact-panel">
+              <label>
+                Namn
+                <input placeholder="Ditt namn" />
+              </label>
+              <label>
+                Projekt
+                <select>
+                  <option>Privat hem</option>
+                  <option>Butik / showroom</option>
+                  <option>Kontor / studio</option>
+                </select>
+              </label>
+              <label>
+                Kort beskrivning
+                <textarea placeholder="Berätta om platsen, tidsplanen och känslan du söker."></textarea>
+              </label>
+              <a class="button" href="mailto:hej@example.com">Skicka brief</a>
+            </form>
+            <article class="form-card">
+              <h3>Vad som händer sen</h3>
+              <p>Studion återkommer med frågor, föreslår upplägg och bokar ett första samtal.</p>
+            </article>
+            <article class="form-card">
+              <h3>Bra att bifoga</h3>
+              <p>Bilder, planritning, inspirationsbilder, budgetnivå och när rummet behöver vara klart.</p>
+            </article>
+          </div>
         </div>
       </section>
     </main>

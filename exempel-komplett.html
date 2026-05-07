@@ -187,7 +187,12 @@
       .review-grid,
       .price-list,
       .faq-grid,
-      .hours-grid {
+      .hours-grid,
+      .guide-grid,
+      .product-grid,
+      .news-grid,
+      .membership-grid,
+      .location-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -196,7 +201,12 @@
       .card,
       .team-card,
       .review-card,
-      .faq-card {
+      .faq-card,
+      .guide-card,
+      .product-card,
+      .news-card,
+      .membership-card,
+      .location-card {
         padding: 22px;
         background: var(--card);
         border: 1px solid var(--line);
@@ -206,7 +216,12 @@
       .card p,
       .team-card p,
       .review-card p,
-      .faq-card p {
+      .faq-card p,
+      .guide-card p,
+      .product-card p,
+      .news-card p,
+      .membership-card p,
+      .location-card p {
         margin-bottom: 0;
         color: var(--muted);
         line-height: 1.62;
@@ -232,7 +247,10 @@
       }
 
       .gallery img,
-      .team-card img {
+      .team-card img,
+      .product-card img,
+      .news-card img,
+      .location-card img {
         width: 100%;
         object-fit: cover;
         border-radius: 8px;
@@ -244,6 +262,13 @@
 
       .team-card img {
         aspect-ratio: 1;
+        margin-bottom: 16px;
+      }
+
+      .product-card img,
+      .news-card img,
+      .location-card img {
+        aspect-ratio: 4 / 3;
         margin-bottom: 16px;
       }
 
@@ -306,7 +331,12 @@
         .review-grid,
         .price-list,
         .faq-grid,
-        .hours-grid {
+        .hours-grid,
+        .guide-grid,
+        .product-grid,
+        .news-grid,
+        .membership-grid,
+        .location-grid {
           grid-template-columns: 1fr;
         }
 
@@ -332,6 +362,7 @@
         <a href="#om">Om oss</a>
         <a href="#galleri">Galleri</a>
         <a href="#priser">Priser</a>
+        <a href="#guide">Guide</a>
         <a href="#boka">Boka</a>
       </div>
     </nav>
@@ -450,6 +481,78 @@
         </div>
       </section>
 
+      <section class="section" id="guide">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Vilken behandling passar?</h2>
+            <p class="lead">En guide hjälper besökaren välja rätt och minskar friktion före bokning.</p>
+          </div>
+          <div class="guide-grid">
+            <article class="guide-card">
+              <h3>För torr hud</h3>
+              <p>Välj fuktgivande ansiktsbehandling och lägg till hudanalys om du vill ha produktrekommendation.</p>
+            </article>
+            <article class="guide-card">
+              <h3>Inför event</h3>
+              <p>Boka bryn, fransar eller makeup minst några dagar innan så resultatet hinner sätta sig.</p>
+            </article>
+            <article class="guide-card">
+              <h3>För första besöket</h3>
+              <p>Hudanalys eller klassisk ansiktsbehandling är enklaste vägen till rätt plan.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Produkter i salongen.</h2>
+            <p class="lead">Produktsektioner passar kunder som säljer utvalda varor men inte behöver full e-handel.</p>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=80" alt="Hudvårdsprodukter på hylla" />
+              <h3>Rengöring</h3>
+              <p>Milda produkter som passar daglig rutin och känsligare hud.</p>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80" alt="Serum och hudvård" />
+              <h3>Serum</h3>
+              <p>Utvalda serum för fukt, lyster och barriärstöd efter behandling.</p>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80" alt="Makeupprodukter" />
+              <h3>Makeup</h3>
+              <p>Basprodukter och verktyg som används i salongens egna behandlingar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Återkommande kunder.</h2>
+            <p class="lead">Ett mer komplett paket kan visa medlemskap, klippkort eller återbesök.</p>
+          </div>
+          <div class="membership-grid">
+            <article class="membership-card">
+              <h3>Hudplan</h3>
+              <p>Tre behandlingar över åtta veckor med rådgivning och produktrekommendation.</p>
+            </article>
+            <article class="membership-card">
+              <h3>Bryn varje månad</h3>
+              <p>Fast återbesök för form och färg, perfekt för kunder som vill hålla rutinen.</p>
+            </article>
+            <article class="membership-card">
+              <h3>Eventpaket</h3>
+              <p>Makeup, bryn och hudförberedelse inför bröllop, fotografering eller fest.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section soft">
         <div class="section-inner">
           <div class="section-head">
@@ -476,6 +579,32 @@
       <section class="section">
         <div class="section-inner">
           <div class="section-head">
+            <h2>Hitta till salongen.</h2>
+            <p class="lead">Karta, parkering och kollektivtrafik gör kontaktsidan mer användbar.</p>
+          </div>
+          <div class="location-grid">
+            <article class="location-card">
+              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80" alt="Stadskvarter med fasader" />
+              <h3>Almagatan 8</h3>
+              <p>Entré från innergården. Ring på Studio Alma så öppnar vi.</p>
+            </article>
+            <article class="location-card">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Ljus entré och dörr" />
+              <h3>Parkering</h3>
+              <p>Gatuparkering finns i området. Kom gärna tio minuter innan din första tid.</p>
+            </article>
+            <article class="location-card">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Promenadväg i stadsmiljö" />
+              <h3>Kollektivtrafik</h3>
+              <p>Spårvagn och buss stannar nära, med kort promenad till salongen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
             <h2>Inför ditt besök.</h2>
             <p class="lead">Praktisk information minskar frågor och gör bokningen mer självklar.</p>
           </div>
@@ -491,6 +620,32 @@
             <article class="card">
               <h3>Avbokning</h3>
               <p>Avboka senast 24 timmar innan din tid så någon annan kan boka platsen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Nyheter från salongen.</h2>
+            <p class="lead">En nyhetssektion ger sidan liv och visar att verksamheten är aktiv.</p>
+          </div>
+          <div class="news-grid">
+            <article class="news-card">
+              <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Person i salongsmiljö" />
+              <h3>Nya kvällstider</h3>
+              <p>Från maj öppnar vi för kvällsbokningar varannan torsdag.</p>
+            </article>
+            <article class="news-card">
+              <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80" alt="Makeup och borstar" />
+              <h3>Brudpaket 2026</h3>
+              <p>Nu tar vi emot förfrågningar för bröllop, provmakeup och styling.</p>
+            </article>
+            <article class="news-card">
+              <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="Nagel- och skönhetsdetaljer" />
+              <h3>Presentkort</h3>
+              <p>Presentkort finns i valfritt belopp och kan hämtas i salongen.</p>
             </article>
           </div>
         </div>
