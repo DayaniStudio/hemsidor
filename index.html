@@ -993,10 +993,7 @@
               Berätta om företaget, kunderna, erbjudandet och vad sidan behöver göra. Du behöver
               inte ha allt färdigt. Det räcker att börja med det du vet.
             </p>
-            <form id="project-form" action="https://formsubmit.co/adriandayani778@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="Ny projektbrief från Adrian Studio" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
+            <form id="project-form">
               <div class="form-row">
                 <label>
                   Namn eller företag
@@ -1004,7 +1001,7 @@
                 </label>
                 <label>
                   E-post
-                  <input type="email" name="email" autocomplete="email" required />
+                  <input type="email" name="epost" autocomplete="email" required />
                 </label>
               </div>
               <div class="form-row">
@@ -1076,6 +1073,7 @@
     </footer>
 
     <script>
+      const projectForm = document.querySelector("#project-form");
       const packageSelect = document.querySelector("#package-select");
       const packageButtons = document.querySelectorAll("[data-package]");
 
@@ -1083,6 +1081,27 @@
         button.addEventListener("click", () => {
           packageSelect.value = button.dataset.package;
         });
+      });
+
+      projectForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(projectForm);
+        const subject = "Ny projektbrief från hemsidan";
+        const body = [
+          `Namn eller företag: ${data.get("namn")}`,
+          `E-post: ${data.get("epost")}`,
+          `Verksamhet: ${data.get("verksamhet")}`,
+          `Paket: ${data.get("paket")}`,
+          `Visuell riktning: ${data.get("kansla")}`,
+          "",
+          "Kort om projektet:",
+          data.get("projekt"),
+        ].join("\n");
+
+        window.location.href = `mailto:adriandayani778@gmail.com?subject=${encodeURIComponent(
+          subject,
+        )}&body=${encodeURIComponent(body)}`;
       });
     </script>
   </body>
