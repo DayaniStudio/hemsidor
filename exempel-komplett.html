@@ -184,7 +184,10 @@
       .services,
       .gallery,
       .team-grid,
-      .review-grid {
+      .review-grid,
+      .price-list,
+      .faq-grid,
+      .hours-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -192,7 +195,8 @@
 
       .card,
       .team-card,
-      .review-card {
+      .review-card,
+      .faq-card {
         padding: 22px;
         background: var(--card);
         border: 1px solid var(--line);
@@ -201,10 +205,23 @@
 
       .card p,
       .team-card p,
-      .review-card p {
+      .review-card p,
+      .faq-card p {
         margin-bottom: 0;
         color: var(--muted);
         line-height: 1.62;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .price-row span {
+        color: var(--muted);
       }
 
       .card strong {
@@ -286,7 +303,10 @@
         .services,
         .gallery,
         .team-grid,
-        .review-grid {
+        .review-grid,
+        .price-list,
+        .faq-grid,
+        .hours-grid {
           grid-template-columns: 1fr;
         }
 
@@ -311,6 +331,7 @@
         <a href="#behandlingar">Behandlingar</a>
         <a href="#om">Om oss</a>
         <a href="#galleri">Galleri</a>
+        <a href="#priser">Priser</a>
         <a href="#boka">Boka</a>
       </div>
     </nav>
@@ -400,6 +421,35 @@
         </div>
       </section>
 
+      <section class="section soft" id="priser">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Priser och upplägg.</h2>
+            <p class="lead">En Standard-hemsida kan visa flera tjänstekategorier utan att bli tung.</p>
+          </div>
+          <div class="price-list">
+            <article class="card">
+              <h3>Hudvård</h3>
+              <div class="price-row"><span>Klassisk ansiktsbehandling</span><strong>690 kr</strong></div>
+              <div class="price-row"><span>Djuprengöring</span><strong>790 kr</strong></div>
+              <div class="price-row"><span>Hudanalys</span><strong>390 kr</strong></div>
+            </article>
+            <article class="card">
+              <h3>Bryn och fransar</h3>
+              <div class="price-row"><span>Brynformning</span><strong>290 kr</strong></div>
+              <div class="price-row"><span>Färg av bryn/fransar</span><strong>390 kr</strong></div>
+              <div class="price-row"><span>Lash lift</span><strong>790 kr</strong></div>
+            </article>
+            <article class="card">
+              <h3>Makeup</h3>
+              <div class="price-row"><span>Festmakeup</span><strong>1 200 kr</strong></div>
+              <div class="price-row"><span>Brudkonsultation</span><strong>690 kr</strong></div>
+              <div class="price-row"><span>Brudmakeup</span><strong>offert</strong></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section soft">
         <div class="section-inner">
           <div class="section-head">
@@ -418,6 +468,52 @@
             <article class="review-card">
               <h3>“Lätt att boka.”</h3>
               <p>Jag hittade behandling, pris och tid direkt från mobilen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Inför ditt besök.</h2>
+            <p class="lead">Praktisk information minskar frågor och gör bokningen mer självklar.</p>
+          </div>
+          <div class="hours-grid">
+            <article class="card">
+              <h3>Öppettider</h3>
+              <p>Måndag-fredag 10-18. Lördag 10-15. Kvällstider finns vissa torsdagar.</p>
+            </article>
+            <article class="card">
+              <h3>Adress</h3>
+              <p>Almagatan 8, Göteborg. Salongen ligger två minuter från spårvagnshållplatsen.</p>
+            </article>
+            <article class="card">
+              <h3>Avbokning</h3>
+              <p>Avboka senast 24 timmar innan din tid så någon annan kan boka platsen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Vanliga frågor.</h2>
+            <p class="lead">FAQ passar perfekt som en av de fem sidorna i Standard-paketet.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card">
+              <h3>Vilken behandling ska jag välja?</h3>
+              <p>Boka hudanalys om du är osäker. Då rekommenderar vi behandling efter hudtyp.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Kan jag köpa presentkort?</h3>
+              <p>Ja, presentkort kan köpas i salongen eller beställas via e-post.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Vilka produkter använder ni?</h3>
+              <p>Vi arbetar med milda produkter och anpassar alltid efter känslighet och mål.</p>
             </article>
           </div>
         </div>

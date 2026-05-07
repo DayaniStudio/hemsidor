@@ -209,7 +209,10 @@
       .signature-grid,
       .project-grid,
       .service-grid,
-      .press-grid {
+      .press-grid,
+      .journal-grid,
+      .package-grid,
+      .faq-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -218,7 +221,10 @@
       .signature,
       .project,
       .service,
-      .press {
+      .press,
+      .journal,
+      .package,
+      .faq {
         padding: 24px;
         background: var(--panel);
         border: 1px solid var(--line);
@@ -240,7 +246,10 @@
       .signature p,
       .project p,
       .service p,
-      .press p {
+      .press p,
+      .journal p,
+      .package p,
+      .faq p {
         color: var(--muted);
         line-height: 1.65;
       }
@@ -251,6 +260,21 @@
         object-fit: cover;
         margin-bottom: 18px;
         border-radius: 8px;
+      }
+
+      .journal img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        margin-bottom: 18px;
+        border-radius: 8px;
+      }
+
+      .package strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--gold);
+        font-size: 1.15rem;
       }
 
       .timeline {
@@ -320,6 +344,9 @@
         .project-grid,
         .service-grid,
         .press-grid,
+        .journal-grid,
+        .package-grid,
+        .faq-grid,
         .cta .section-inner {
           grid-template-columns: 1fr;
         }
@@ -348,6 +375,7 @@
       <div class="nav-links">
         <a href="#koncept">Koncept</a>
         <a href="#projekt">Projekt</a>
+        <a href="#tjanster">Tjänster</a>
         <a href="#process">Process</a>
         <a href="#kontakt">Kontakt</a>
       </div>
@@ -434,7 +462,7 @@
         </div>
       </section>
 
-      <section class="section alt">
+      <section class="section alt" id="tjanster">
         <div class="section-inner">
           <p class="eyebrow">Tjänster</p>
           <h2>Från rådgivning till helhet.</h2>
@@ -450,6 +478,30 @@
             <article class="service">
               <h3>Projektledning</h3>
               <p>Stöd genom inköp, hantverkarkontakt, styling och sista detaljerna.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="eyebrow">Paket</p>
+          <h2>Tre sätt att arbeta med studion.</h2>
+          <div class="package-grid">
+            <article class="package">
+              <strong>fr. 4 900 kr</strong>
+              <h3>Rådgivning hemma</h3>
+              <p>Två timmar på plats med konkreta råd kring layout, färg, ljus och prioritering.</p>
+            </article>
+            <article class="package">
+              <strong>fr. 18 000 kr</strong>
+              <h3>Rumskoncept</h3>
+              <p>En komplett riktning med moodboard, inköpslista, möblering och materialförslag.</p>
+            </article>
+            <article class="package">
+              <strong>Offert</strong>
+              <h3>Helhetsprojekt</h3>
+              <p>Stöd från första idé till färdig miljö, inklusive styling och projektledning.</p>
             </article>
           </div>
         </div>
@@ -493,6 +545,30 @@
 
       <section class="section alt">
         <div class="section-inner">
+          <p class="eyebrow">Inspiration</p>
+          <h2>Journal.</h2>
+          <div class="journal-grid">
+            <article class="journal">
+              <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=82" alt="Ljus interiör med soffbord" />
+              <h3>Så väljer du rätt material</h3>
+              <p>En kort guide till trä, sten och textil när rummet ska kännas varmt men hållbart.</p>
+            </article>
+            <article class="journal">
+              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=82" alt="Kök med harmoniska material" />
+              <h3>Varför ljuset styr färgen</h3>
+              <p>Färger förändras under dagen. Därför börjar bra färgsättning alltid med ljuset.</p>
+            </article>
+            <article class="journal">
+              <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=900&q=82" alt="Detaljbild från matplats" />
+              <h3>Små detaljer som håller ihop</h3>
+              <p>Handtag, textil och belysning kan göra att ett rum känns färdigt på riktigt.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-inner">
           <p class="eyebrow">Förtroende</p>
           <h2>Publicerat och omtyckt.</h2>
           <div class="press-grid">
@@ -507,6 +583,27 @@
             <article class="press">
               <h3>Lokala samarbeten</h3>
               <p>Material, hantverk och möbler väljs ofta från små nordiska leverantörer.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <p class="eyebrow">Frågor</p>
+          <h2>Vanliga frågor innan ett projekt.</h2>
+          <div class="faq-grid">
+            <article class="faq">
+              <h3>Kan ni jobba med befintliga möbler?</h3>
+              <p>Ja. Ofta börjar vi med det som redan finns och bygger vidare där det behövs.</p>
+            </article>
+            <article class="faq">
+              <h3>Gör ni inköpslistor?</h3>
+              <p>Ja. Rumskoncept kan innehålla länkar, budgetnivåer och prioriteringsordning.</p>
+            </article>
+            <article class="faq">
+              <h3>Tar ni kommersiella projekt?</h3>
+              <p>Ja, särskilt boutique, studio, kontor och mindre miljöer där känslan är viktig.</p>
             </article>
           </div>
         </div>

@@ -267,11 +267,28 @@
         gap: 12px;
       }
 
+      .step-grid,
+      .review-grid,
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
       .price-box strong {
         display: block;
         margin-bottom: 8px;
         color: var(--rust);
         font-size: 1.2rem;
+      }
+
+      .step-number {
+        display: block;
+        margin-bottom: 20px;
+        color: var(--rust);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.5rem;
+        line-height: 1;
       }
 
       .contact-band {
@@ -330,6 +347,9 @@
 
         .info-grid,
         .price-grid,
+        .step-grid,
+        .review-grid,
+        .faq-grid,
         .strip {
           grid-template-columns: 1fr;
         }
@@ -459,6 +479,78 @@
               <strong>Offert</strong>
               <h3>Större jobb</h3>
               <p>Vi återkommer med pris innan vi börjar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Så går besöket till.</h2>
+            <p class="lead">Även en 1-sides hemsida kan förklara processen så kunden känner sig trygg.</p>
+          </div>
+          <div class="step-grid">
+            <article class="info">
+              <span class="step-number">01</span>
+              <h3>Skicka en bild</h3>
+              <p>Beskriv problemet kort, gärna med bild på cykeln och delen som strular.</p>
+            </article>
+            <article class="info">
+              <span class="step-number">02</span>
+              <h3>Få ungefärligt pris</h3>
+              <p>Vi svarar med uppskattning, tid och om det passar bäst med drop-in eller bokning.</p>
+            </article>
+            <article class="info">
+              <span class="step-number">03</span>
+              <h3>Hämta färdig cykel</h3>
+              <p>Du får sms när cykeln är klar och en enkel förklaring av vad vi gjort.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Lokala kunder.</h2>
+            <p class="lead">Korta recensioner gör stor skillnad för en liten lokal verksamhet.</p>
+          </div>
+          <div class="review-grid">
+            <article class="info">
+              <h3>“Fixat innan lunch.”</h3>
+              <p>Punkteringen löstes snabbt och jag fick veta varför däcket spruckit.</p>
+            </article>
+            <article class="info">
+              <h3>“Tydligt pris.”</h3>
+              <p>Jag visste vad servicen skulle kosta innan de började jobba.</p>
+            </article>
+            <article class="info">
+              <h3>“Bra för pendling.”</h3>
+              <p>De hittade felet i växlarna och cykeln känns stabil igen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Vanliga frågor.</h2>
+            <p class="lead">FAQ hjälper kunden ta beslut utan att behöva ringa först.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="info">
+              <h3>Måste jag boka tid?</h3>
+              <p>Nej, enklare jobb kan lämnas på drop-in. Större jobb bokas helst i förväg.</p>
+            </article>
+            <article class="info">
+              <h3>Lagningar ni inte gör?</h3>
+              <p>Vi tar inte elfel i batterier, men hjälper gärna med mekaniska delar på elcyklar.</p>
+            </article>
+            <article class="info">
+              <h3>Kan jag köpa delar?</h3>
+              <p>Ja, vi har slangar, lampor, lås och enklare reservdelar i verkstaden.</p>
             </article>
           </div>
         </div>
