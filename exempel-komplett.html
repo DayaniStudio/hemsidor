@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exempel Standard | Studio Alma</title>
+    <meta
+      name="description"
+      content="Exempelsida för paketet Standard: en hemsida på upp till 5 sidor för ett lokalt företag."
+    />
+    <style>
+      :root {
+        --ink: #231f21;
+        --muted: #74686d;
+        --paper: #fff7f3;
+        --card: #ffffff;
+        --line: #ead7cf;
+        --rose: #be5b6b;
+        --plum: #442933;
+        --soft: #f3e4df;
+        --shadow: 0 24px 60px rgba(68, 41, 51, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 18px clamp(18px, 5vw, 60px);
+        background: rgba(255, 247, 243, 0.9);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        font-weight: 900;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        color: var(--muted);
+        font-weight: 750;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        color: #fff;
+        background: var(--rose);
+        border-radius: 999px;
+        font-weight: 850;
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: transparent;
+        border: 1px solid var(--line);
+      }
+
+      .hero {
+        padding: clamp(58px, 9vw, 118px) clamp(18px, 5vw, 60px);
+      }
+
+      .hero-grid,
+      .section-inner {
+        width: min(1160px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(30px, 6vw, 76px);
+        align-items: center;
+      }
+
+      .hero-image {
+        min-height: 560px;
+        border-radius: 8px;
+        background:
+          linear-gradient(rgba(68, 41, 51, 0.08), rgba(68, 41, 51, 0.08)),
+          url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1300&q=82")
+            center / cover;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--rose);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        margin-bottom: 22px;
+        font-size: clamp(3.2rem, 7vw, 7rem);
+        line-height: 0.9;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: clamp(2.1rem, 5vw, 4.2rem);
+        line-height: 1;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.72;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .section {
+        padding: clamp(56px, 8vw, 98px) clamp(18px, 5vw, 60px);
+      }
+
+      .section.soft {
+        background: var(--soft);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 1fr 0.55fr;
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      .services,
+      .gallery,
+      .team-grid,
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .card,
+      .team-card,
+      .review-card {
+        padding: 22px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .card p,
+      .team-card p,
+      .review-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--rose);
+        font-size: 1.15rem;
+      }
+
+      .gallery img,
+      .team-card img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .gallery img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .team-card img {
+        aspect-ratio: 1;
+        margin-bottom: 16px;
+      }
+
+      .booking {
+        color: #fff;
+        background: var(--plum);
+      }
+
+      .booking .section-inner {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .booking p {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .booking-card {
+        padding: 24px;
+        color: var(--ink);
+        background: #fff;
+        border-radius: 8px;
+      }
+
+      .booking-card label {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 13px;
+        color: var(--muted);
+        font-weight: 750;
+      }
+
+      .booking-card input,
+      .booking-card select {
+        min-height: 46px;
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font: inherit;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px clamp(18px, 5vw, 60px);
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .section-head,
+        .booking .section-inner,
+        .services,
+        .gallery,
+        .team-grid,
+        .review-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-image {
+          min-height: 380px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">Studio Alma</a>
+      <div class="nav-links">
+        <a href="#behandlingar">Behandlingar</a>
+        <a href="#om">Om oss</a>
+        <a href="#galleri">Galleri</a>
+        <a href="#boka">Boka</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Hudvård och skönhet i Göteborg</p>
+            <h1>En lugn salong med personliga behandlingar.</h1>
+            <p class="lead">
+              Studio Alma erbjuder hudvård, bryn, fransar och makeup i en varm miljö. Den här
+              exempelsidan visar hur Standard-paketet kan kännas som en riktig 5-sidors hemsida.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#boka">Boka tid</a>
+              <a class="button secondary" href="#behandlingar">Se behandlingar</a>
+            </div>
+          </div>
+          <div class="hero-image" role="img" aria-label="Salongsmiljö med spegel och mjukt ljus"></div>
+        </div>
+      </section>
+
+      <section class="section" id="behandlingar">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Behandlingar med tydlig struktur.</h2>
+            <p class="lead">En Standard-sida kan innehålla startsida, tjänster, om oss, galleri och kontakt/bokning.</p>
+          </div>
+          <div class="services">
+            <article class="card">
+              <strong>fr. 690 kr</strong>
+              <h3>Hudvård</h3>
+              <p>Ansiktsbehandlingar, rådgivning och produkter anpassade efter hudtyp.</p>
+            </article>
+            <article class="card">
+              <strong>fr. 490 kr</strong>
+              <h3>Bryn och fransar</h3>
+              <p>Form, färg och lash lift med naturligt resultat och tydlig eftervård.</p>
+            </article>
+            <article class="card">
+              <strong>fr. 1 200 kr</strong>
+              <h3>Makeup</h3>
+              <p>Makeup för bröllop, fotografering och tillfällen där känslan ska hålla.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft" id="om">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Möt teamet.</h2>
+            <p class="lead">Om-sidan bygger förtroende och gör verksamheten mänsklig innan kunden bokar.</p>
+          </div>
+          <div class="team-grid">
+            <article class="team-card">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80" alt="Porträtt av salongsterapeut" />
+              <h3>Alma</h3>
+              <p>Hudterapeut med fokus på lugna behandlingar och tydlig rådgivning.</p>
+            </article>
+            <article class="team-card">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80" alt="Porträtt av makeupartist" />
+              <h3>Nora</h3>
+              <p>Makeupartist som hjälper kunder hitta en stil som känns naturlig.</p>
+            </article>
+            <article class="team-card">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80" alt="Porträtt av salongsmedarbetare" />
+              <h3>Elin</h3>
+              <p>Specialiserad på bryn, fransar och små detaljer som gör stor skillnad.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="galleri">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Miljö och resultat.</h2>
+            <p class="lead">Ett galleri gör sidan mer personlig och hjälper kunden känna salongen innan besöket.</p>
+          </div>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Salong med hårvård" />
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80" alt="Skönhetsprodukter" />
+            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80" alt="Makeupborstar" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Kunder säger.</h2>
+            <p class="lead">Recensioner är enkelt att lägga in och hjälper nya besökare känna trygghet.</p>
+          </div>
+          <div class="review-grid">
+            <article class="review-card">
+              <h3>“Så lugnt och proffsigt.”</h3>
+              <p>Jag fick hjälp att förstå vad min hud faktiskt behövde. Kommer tillbaka.</p>
+            </article>
+            <article class="review-card">
+              <h3>“Perfekt inför bröllopet.”</h3>
+              <p>Makeupen kändes som jag, fast mer genomtänkt. Väldigt trygg process.</p>
+            </article>
+            <article class="review-card">
+              <h3>“Lätt att boka.”</h3>
+              <p>Jag hittade behandling, pris och tid direkt från mobilen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section booking" id="boka">
+        <div class="section-inner">
+          <div>
+            <p class="eyebrow">Bokning</p>
+            <h2>Redo för en tid?</h2>
+            <p>Bokningsdelen kan länka till Bokadirekt, Calendly eller fungera som ett enkelt formulär.</p>
+            <a class="button" href="mailto:hej@example.com">Boka behandling</a>
+          </div>
+          <form class="booking-card">
+            <label>
+              Namn
+              <input placeholder="Ditt namn" />
+            </label>
+            <label>
+              Behandling
+              <select>
+                <option>Hudvård</option>
+                <option>Bryn och fransar</option>
+                <option>Makeup</option>
+              </select>
+            </label>
+            <label>
+              E-post
+              <input placeholder="namn@example.com" />
+            </label>
+            <a class="button" href="mailto:hej@example.com">Skicka bokningsfråga</a>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Studio Alma</span>
+      <span>Exempel på paketet Standard: upp till 5 sidor</span>
+    </footer>
+  </body>
+</html>

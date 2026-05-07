@@ -434,6 +434,12 @@
         line-height: 1;
       }
 
+      .price-note {
+        margin: -4px 0 18px;
+        color: var(--tomato);
+        font-weight: 850;
+      }
+
       .package p,
       .package li {
         color: var(--muted);
@@ -460,6 +466,30 @@
 
       .package .button {
         margin-top: auto;
+      }
+
+      .package-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: auto;
+      }
+
+      .example-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        color: var(--ink);
+        background: var(--cream);
+        border: 1px solid var(--tomato);
+        border-radius: 999px;
+        font-weight: 850;
+      }
+
+      .example-link:hover {
+        color: var(--cream);
+        background: var(--tomato);
       }
 
       .process-strip {
@@ -863,54 +893,69 @@
           <div class="section-head">
             <h2>Paket som går att förstå.</h2>
             <p class="lead">
-              Priserna är startnivåer. Jag lämnar fastare förslag när jag vet vad som finns:
-              bilder, tjänster, produkter, bokningssystem, antal sidor och hur mycket text som behöver tas fram.
+              Alla paket har ett startpris och ett obligatoriskt abonnemang. Abonnemanget
+              täcker drift, underhåll och löpande uppdateringar av hemsidan.
             </p>
           </div>
 
           <div class="package-grid">
             <article class="package">
               <span class="tag">Start</span>
-              <h3>Startklar sida</h3>
+              <h3>Start</h3>
               <div class="price">fr. 1 490 kr</div>
-              <p>För dig som behöver en enkel men fin närvaro med rätt information på plats.</p>
+              <p class="price-note">+ obligatoriskt abonnemang 299 kr/mån</p>
+              <p>För dig som behöver en tydlig 1-sides hemsida med rätt information på plats.</p>
               <ul>
-                <li>En startsida</li>
+                <li>1 sida</li>
                 <li>Tjänster, produkter eller meny</li>
                 <li>Öppettider och kontakt</li>
                 <li>Mobilanpassning</li>
+                <li>Löpande uppdateringar via abonnemang</li>
               </ul>
-              <a class="button secondary" href="#kontakt" data-package="Startklar sida">Fråga om Start</a>
+              <div class="package-actions">
+                <a class="example-link" href="exempel-start.html">Visa exempel</a>
+                <a class="button secondary" href="#kontakt" data-package="Start">Fråga om Start</a>
+              </div>
             </article>
 
             <article class="package featured">
               <span class="tag">Populär</span>
-              <h3>Företag komplett</h3>
+              <h3>Standard</h3>
               <div class="price">fr. 3 900 kr</div>
-              <p>För verksamheter som vill ha mer känsla, mer innehåll och tydligare vägar till kontakt.</p>
+              <p class="price-note">+ obligatoriskt abonnemang 499 kr/mån</p>
+              <p>För verksamheter som vill ha en mer komplett hemsida med tydlig struktur.</p>
               <ul>
-                <li>Flera sektioner</li>
+                <li>Upp till 5 sidor</li>
                 <li>Tjänster eller utbud med kategorier</li>
                 <li>Galleri och utvalda rätter</li>
                 <li>Bokningslänk, köpknapp eller formulär</li>
                 <li>Grund för lokal synlighet</li>
+                <li>Löpande uppdateringar via abonnemang</li>
               </ul>
-              <a class="button" href="#kontakt" data-package="Företag komplett">Välj komplett</a>
+              <div class="package-actions">
+                <a class="example-link" href="exempel-komplett.html">Visa exempel</a>
+                <a class="button" href="#kontakt" data-package="Standard">Välj Standard</a>
+              </div>
             </article>
 
             <article class="package">
               <span class="tag">Signatur</span>
-              <h3>Helhetskänsla</h3>
+              <h3>Premium</h3>
               <div class="price">fr. 7 900 kr</div>
-              <p>För verksamheter där hemsidan ska bära varumärket lika mycket som lokalen gör.</p>
+              <p class="price-note">+ obligatoriskt abonnemang 849 kr/mån</p>
+              <p>För verksamheter som vill ha en större hemsida med mer innehåll och starkare känsla.</p>
               <ul>
+                <li>Upp till 10 sidor</li>
                 <li>Mer avancerad visuell riktning</li>
-                <li>Fler undersidor</li>
                 <li>Animationer eller specialsektioner</li>
                 <li>Instagram, bokning, karta eller extra funktion</li>
                 <li>Lanseringshjälp</li>
+                <li>Löpande uppdateringar via abonnemang</li>
               </ul>
-              <a class="button secondary" href="#kontakt" data-package="Helhetskänsla">Be om offert</a>
+              <div class="package-actions">
+                <a class="example-link" href="exempel-helhet.html">Visa exempel</a>
+                <a class="button secondary" href="#kontakt" data-package="Premium">Be om offert</a>
+              </div>
             </article>
           </div>
         </div>
@@ -974,9 +1019,9 @@
                 <label>
                   Paket
                   <select name="paket" id="package-select">
-                    <option>Startklar sida</option>
-                    <option>Företag komplett</option>
-                    <option>Helhetskänsla</option>
+                    <option>Start</option>
+                    <option>Standard</option>
+                    <option>Premium</option>
                     <option>Jag vill ha råd</option>
                   </select>
                 </label>

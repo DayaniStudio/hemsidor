@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exempel Start | Lilla Verkstan</title>
+    <meta
+      name="description"
+      content="Exempelsida för paketet Start: en tydlig 1-sides hemsida för ett lokalt företag."
+    />
+    <style>
+      :root {
+        --ink: #20211d;
+        --muted: #6b6b61;
+        --paper: #f6f0e4;
+        --card: #fffdf7;
+        --line: #ddd2bf;
+        --accent: #587246;
+        --rust: #b8673c;
+        --dark: #24291f;
+        --shadow: 0 22px 48px rgba(43, 39, 29, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 18px clamp(18px, 5vw, 56px);
+        background: rgba(246, 240, 228, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .brand {
+        font-weight: 900;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        color: var(--muted);
+        font-weight: 750;
+      }
+
+      .button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 18px;
+        color: #fff;
+        background: var(--accent);
+        border-radius: 999px;
+        font-weight: 850;
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: transparent;
+        border: 1px solid var(--line);
+      }
+
+      .hero {
+        padding: clamp(58px, 10vw, 118px) clamp(18px, 5vw, 56px) clamp(44px, 7vw, 76px);
+      }
+
+      .hero-grid,
+      .section-inner {
+        width: min(1080px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 380px;
+        gap: clamp(28px, 6vw, 70px);
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 22px;
+        font-size: clamp(3rem, 7vw, 6.4rem);
+        line-height: 0.92;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1;
+      }
+
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .hero-card {
+        padding: 24px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 18px;
+      }
+
+      .status-list {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .status-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--line);
+        color: var(--muted);
+      }
+
+      .status-list strong {
+        color: var(--ink);
+      }
+
+      .strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--card);
+      }
+
+      .strip div {
+        padding: 22px clamp(18px, 4vw, 40px);
+        border-right: 1px solid var(--line);
+      }
+
+      .strip div:last-child {
+        border-right: 0;
+      }
+
+      .strip strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--rust);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2rem;
+      }
+
+      .strip span {
+        color: var(--muted);
+      }
+
+      .section {
+        padding: clamp(52px, 8vw, 90px) clamp(18px, 5vw, 56px);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 1fr 0.55fr;
+        gap: 26px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .info,
+      .price-box,
+      .contact {
+        padding: 22px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .info p,
+      .price-box p,
+      .contact p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .price-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      .price-box strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--rust);
+        font-size: 1.2rem;
+      }
+
+      .contact-band {
+        color: #fff;
+        background: var(--dark);
+      }
+
+      .contact-band .section-inner {
+        display: grid;
+        grid-template-columns: 1fr 0.72fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .contact-band p {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .contact-card {
+        padding: 24px;
+        color: var(--ink);
+        background: var(--card);
+        border-radius: 8px;
+      }
+
+      .contact-card p {
+        color: var(--muted);
+      }
+
+      .contact-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .contact-line span {
+        color: var(--muted);
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px clamp(18px, 5vw, 56px);
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .section-head,
+        .contact-band .section-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .info-grid,
+        .price-grid,
+        .strip {
+          grid-template-columns: 1fr;
+        }
+
+        .strip div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .strip div:last-child {
+          border-bottom: 0;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="brand" href="index.html">Lilla Verkstan</a>
+      <div class="nav-links">
+        <a href="#tjanster">Tjänster</a>
+        <a href="#priser">Priser</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Cykelservice i Majorna</p>
+            <h1>Snabb hjälp när cykeln strular.</h1>
+            <p class="lead">
+              Lilla Verkstan hjälper dig med punktering, bromsar, kedja och enklare service.
+              Kom förbi på drop-in eller skicka en bild så återkommer vi med ungefärlig prisbild.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#kontakt">Boka service</a>
+              <a class="button secondary" href="#priser">Se priser</a>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <img
+              src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=900&q=80"
+              alt="Cykel i verkstad"
+            />
+            <h3>Öppet idag 10-18</h3>
+            <p class="lead">Reparation, punktering och enklare service utan krångel.</p>
+            <ul class="status-list">
+              <li><strong>Drop-in</strong><span>vardagar 10-16</span></li>
+              <li><strong>Adress</strong><span>Verkstadsgatan 12</span></li>
+              <li><strong>Svarstid</strong><span>oftast samma dag</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="strip" aria-label="Snabba fakta">
+        <div>
+          <strong>20 min</strong>
+          <span>för många enklare justeringar när verkstaden har tid.</span>
+        </div>
+        <div>
+          <strong>4.8/5</strong>
+          <span>i kundbetyg från lokala cyklister.</span>
+        </div>
+        <div>
+          <strong>2019</strong>
+          <span>har vi servat cyklar i Majorna sedan.</span>
+        </div>
+      </section>
+
+      <section class="section" id="tjanster">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Det vi hjälper till med.</h2>
+            <p class="lead">En Start-sida kan fortfarande kännas komplett när den prioriterar rätt information.</p>
+          </div>
+          <div class="info-grid">
+            <article class="info">
+              <h3>Punktering</h3>
+              <p>Byte av slang, däckkontroll och snabb genomgång så du kommer vidare tryggt.</p>
+            </article>
+            <article class="info">
+              <h3>Bromsar och växlar</h3>
+              <p>Justering, byte av enklare delar och rådgivning om vad som behöver göras.</p>
+            </article>
+            <article class="info">
+              <h3>Bas-service</h3>
+              <p>Genomgång av kedja, däck, bromsar, skruvar och slitdelar inför säsongen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="priser">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Tydliga startpriser.</h2>
+            <p class="lead">Priserna kan bytas mot meny, tjänstelista eller paket beroende på kundens bransch.</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-box">
+              <strong>fr. 249 kr</strong>
+              <h3>Punktering</h3>
+              <p>Slangbyte och snabb kontroll av däcket.</p>
+            </article>
+            <article class="price-box">
+              <strong>fr. 349 kr</strong>
+              <h3>Bromsjustering</h3>
+              <p>Justering av bromsar och enklare felsökning.</p>
+            </article>
+            <article class="price-box">
+              <strong>fr. 590 kr</strong>
+              <h3>Bas-service</h3>
+              <p>Genomgång inför pendling eller säsong.</p>
+            </article>
+            <article class="price-box">
+              <strong>Offert</strong>
+              <h3>Större jobb</h3>
+              <p>Vi återkommer med pris innan vi börjar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-band" id="kontakt">
+        <div class="section-inner">
+          <div>
+            <p class="eyebrow">Kontakt</p>
+            <h2>Behöver cykeln hjälp?</h2>
+            <p>
+              Ring, skicka en bild på problemet eller kom förbi verkstaden. En enkel sida ska
+              göra nästa steg självklart.
+            </p>
+            <a class="button" href="mailto:hej@example.com">Skicka förfrågan</a>
+          </div>
+          <aside class="contact-card">
+            <h3>Lilla Verkstan</h3>
+            <div class="contact-line"><span>Telefon</span><strong>031-12 34 56</strong></div>
+            <div class="contact-line"><span>E-post</span><strong>hej@example.com</strong></div>
+            <div class="contact-line"><span>Öppet</span><strong>Mån-fre 10-18</strong></div>
+            <div class="contact-line"><span>Adress</span><strong>Verkstadsgatan 12</strong></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Lilla Verkstan</span>
+      <span>Exempel på paketet Start: 1-sides hemsida</span>
+    </footer>
+  </body>
+</html>
