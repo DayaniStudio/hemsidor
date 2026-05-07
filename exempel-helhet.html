@@ -75,6 +75,17 @@
         backdrop-filter: blur(18px);
       }
 
+      .demo-banner {
+        position: relative;
+        z-index: 11;
+        padding: 10px clamp(18px, 5vw, 64px);
+        color: #111413;
+        background: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-align: center;
+      }
+
       .brand {
         font-weight: 900;
       }
@@ -450,6 +461,16 @@
         border-top: 1px solid var(--line);
       }
 
+      .demo-note {
+        width: min(1180px, 100%);
+        margin: 0 auto 18px;
+        padding: 18px;
+        color: #111413;
+        background: #f7f1e6;
+        border-radius: 8px;
+        font-weight: 800;
+      }
+
       .reveal {
         opacity: 0;
         transform: translateY(34px);
@@ -532,6 +553,7 @@
     </style>
   </head>
   <body>
+    <div class="demo-banner">Detta är inte en riktig hemsida. Det är bara ett exempel från Dayani Studio.</div>
     <nav class="nav">
       <a class="brand" href="index.html">Nordform Atelier</a>
       <div class="nav-links">
@@ -948,6 +970,7 @@
     </main>
 
     <footer>
+      <div class="demo-note">Obs: Nordform Atelier är ett fiktivt exempel. Sidan visar hur paketet Premium kan se ut.</div>
       <span>Nordform Atelier</span>
       <span>Exempel på paketet Premium: upp till 10 sidor</span>
     </footer>

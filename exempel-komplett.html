@@ -74,6 +74,15 @@
         backdrop-filter: blur(16px);
       }
 
+      .demo-banner {
+        padding: 10px clamp(18px, 5vw, 60px);
+        color: #fff;
+        background: var(--plum);
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
       .brand {
         font-weight: 900;
       }
@@ -415,6 +424,17 @@
         color: var(--muted);
       }
 
+      .demo-note {
+        width: min(1160px, 100%);
+        margin: 0 auto 18px;
+        padding: 18px;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-weight: 750;
+      }
+
       @media (max-width: 860px) {
         .hero-grid,
         .section-head,
@@ -449,6 +469,7 @@
     </style>
   </head>
   <body>
+    <div class="demo-banner">Detta är inte en riktig hemsida. Det är bara ett exempel från Dayani Studio.</div>
     <nav class="nav">
       <a class="brand" href="index.html">Studio Alma</a>
       <div class="nav-links">
@@ -800,6 +821,7 @@
     </main>
 
     <footer>
+      <div class="demo-note">Obs: Studio Alma är ett fiktivt exempel. Sidan visar hur paketet Standard kan se ut.</div>
       <span>Studio Alma</span>
       <span>Exempel på paketet Standard: upp till 5 sidor</span>
     </footer>
