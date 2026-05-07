@@ -38,6 +38,17 @@
         letter-spacing: 0;
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(115deg, transparent 0 42%, rgba(201, 154, 70, 0.12) 42% 43%, transparent 43% 100%),
+          radial-gradient(circle at 80% 12%, rgba(201, 154, 70, 0.16), transparent 22%);
+        animation: premiumAtmosphere 14s ease-in-out infinite alternate;
+      }
+
       a {
         color: inherit;
         text-decoration: none;
@@ -85,6 +96,15 @@
         background: var(--gold);
         border-radius: 999px;
         font-weight: 900;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .button:hover {
+        box-shadow: 0 14px 34px rgba(201, 154, 70, 0.26);
+        transform: translateY(-3px);
       }
 
       .button.secondary {
@@ -102,6 +122,7 @@
           linear-gradient(90deg, rgba(17, 20, 19, 0.88), rgba(17, 20, 19, 0.4) 56%, rgba(17, 20, 19, 0.12)),
           url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=84")
             center / cover;
+        animation: heroDrift 18s ease-in-out infinite alternate;
       }
 
       .hero-inner,
@@ -178,6 +199,7 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 8px;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
       }
 
       .panel p {
@@ -241,6 +263,28 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 8px;
+        transition:
+          transform 220ms ease,
+          border-color 220ms ease,
+          box-shadow 220ms ease;
+      }
+
+      .signature:hover,
+      .project:hover,
+      .service:hover,
+      .press:hover,
+      .journal:hover,
+      .package:hover,
+      .faq:hover,
+      .material:hover,
+      .studio:hover,
+      .detail:hover,
+      .client:hover,
+      .scope:hover,
+      .form-card:hover {
+        border-color: rgba(201, 154, 70, 0.46);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+        transform: translateY(-6px);
       }
 
       .signature {
@@ -296,6 +340,17 @@
         border: 1px solid rgba(17, 20, 19, 0.18);
         border-radius: 8px;
         font: inherit;
+        transition:
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .form-card input:focus,
+      .form-card select:focus,
+      .form-card textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 4px rgba(201, 154, 70, 0.16);
+        outline: 0;
       }
 
       .form-card textarea {
@@ -309,6 +364,7 @@
         object-fit: cover;
         margin-bottom: 18px;
         border-radius: 8px;
+        transition: transform 500ms ease;
       }
 
       .journal img {
@@ -317,6 +373,13 @@
         object-fit: cover;
         margin-bottom: 18px;
         border-radius: 8px;
+        transition: transform 500ms ease;
+      }
+
+      .project:hover img,
+      .journal:hover img,
+      .image-stack img:hover {
+        transform: scale(1.035);
       }
 
       .package strong {
@@ -385,6 +448,50 @@
         padding: 24px clamp(18px, 5vw, 64px);
         color: var(--muted);
         border-top: 1px solid var(--line);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(34px);
+        transition:
+          opacity 760ms ease,
+          transform 760ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes premiumAtmosphere {
+        from {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+        }
+
+        to {
+          transform: translate3d(0, 28px, 0) rotate(1deg);
+        }
+      }
+
+      @keyframes heroDrift {
+        from {
+          background-position: center;
+        }
+
+        to {
+          background-position: center 46%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
       }
 
       @media (max-width: 900px) {
@@ -844,5 +951,29 @@
       <span>Nordform Atelier</span>
       <span>Exempel på paketet Premium: upp till 10 sidor</span>
     </footer>
+    <script>
+      const revealItems = document.querySelectorAll(
+        ".panel, .signature, .project, .service, .press, .journal, .package, .faq, .material, .studio, .detail, .client, .scope, .timeline article, .contact-panel, .form-card",
+      );
+
+      revealItems.forEach((item, index) => {
+        item.classList.add("reveal");
+        item.style.transitionDelay = `${Math.min(index % 9, 8) * 55}ms`;
+      });
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.13 },
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
   </body>
 </html>

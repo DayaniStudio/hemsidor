@@ -39,6 +39,18 @@
         letter-spacing: 0;
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(88, 114, 70, 0.08) 1px, transparent 1px),
+          linear-gradient(rgba(88, 114, 70, 0.06) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 70%);
+      }
+
       a {
         color: inherit;
         text-decoration: none;
@@ -84,6 +96,15 @@
         background: var(--accent);
         border-radius: 999px;
         font-weight: 850;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .button:hover {
+        box-shadow: 0 12px 28px rgba(88, 114, 70, 0.24);
+        transform: translateY(-2px);
       }
 
       .button.secondary {
@@ -166,6 +187,7 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         box-shadow: var(--shadow);
+        animation: floatCard 5s ease-in-out infinite;
       }
 
       .hero-card img {
@@ -251,6 +273,17 @@
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: 8px;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .info:hover,
+      .price-box:hover {
+        border-color: rgba(88, 114, 70, 0.42);
+        box-shadow: var(--shadow);
+        transform: translateY(-4px);
       }
 
       .info p,
@@ -291,6 +324,41 @@
         font-family: Georgia, "Times New Roman", serif;
         font-size: 2.5rem;
         line-height: 1;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 600ms ease,
+          transform 600ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
       }
 
       .contact-band {
@@ -658,5 +726,29 @@
       <span>Lilla Verkstan</span>
       <span>Exempel på paketet Start: 1-sides hemsida</span>
     </footer>
+    <script>
+      const revealItems = document.querySelectorAll(
+        ".section-head, .info, .price-box, .contact-card, .strip div",
+      );
+
+      revealItems.forEach((item, index) => {
+        item.classList.add("reveal");
+        item.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+      });
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14 },
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
   </body>
 </html>
