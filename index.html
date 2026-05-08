@@ -461,6 +461,113 @@
         line-height: 1.62;
       }
 
+      .proof-grid,
+      .care-grid,
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .proof-card,
+      .care-card,
+      .faq-card {
+        padding: 24px;
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .proof-card strong,
+      .care-card strong {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--tomato);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.2rem;
+        line-height: 1;
+      }
+
+      .proof-card p,
+      .care-card p,
+      .faq-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .about {
+        background: var(--charcoal);
+        color: var(--cream);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(28px, 6vw, 76px);
+        align-items: center;
+      }
+
+      .about-image {
+        min-height: 520px;
+        background:
+          linear-gradient(rgba(23, 23, 22, 0.1), rgba(23, 23, 22, 0.1)),
+          url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=82")
+            center / cover;
+        border: 1px solid rgba(255, 253, 248, 0.16);
+        border-radius: 8px;
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.22);
+      }
+
+      .about .lead,
+      .about p {
+        color: rgba(255, 253, 248, 0.76);
+      }
+
+      .about-list {
+        display: grid;
+        gap: 12px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .about-list li {
+        padding: 14px 0;
+        border-top: 1px solid rgba(255, 253, 248, 0.14);
+        color: rgba(255, 253, 248, 0.82);
+      }
+
+      .cta-band {
+        padding: 34px clamp(18px, 5vw, 58px);
+        color: var(--cream);
+        background:
+          linear-gradient(120deg, rgba(23, 23, 22, 0.96), rgba(85, 107, 69, 0.82)),
+          url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=82")
+            center / cover;
+      }
+
+      .cta-band-inner {
+        width: min(1180px, 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 0 auto;
+      }
+
+      .cta-band p {
+        max-width: 660px;
+        margin-bottom: 0;
+        color: rgba(255, 253, 248, 0.78);
+        line-height: 1.62;
+      }
+
+      .faq-card h3 {
+        margin-bottom: 12px;
+      }
+
       .packages {
         background:
           linear-gradient(180deg, #efe3d2 0%, #f5eadb 100%);
@@ -468,7 +575,7 @@
 
       .package-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 16px;
       }
 
@@ -513,14 +620,29 @@
       .price {
         margin: 12px 0 14px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.3rem, 5vw, 3.8rem);
+        font-size: clamp(2rem, 3vw, 3rem);
         line-height: 1;
+        white-space: nowrap;
+      }
+
+      .price.range {
+        font-size: clamp(1.7rem, 2.4vw, 2.45rem);
       }
 
       .price-note {
         margin: -4px 0 18px;
         color: var(--tomato);
         font-weight: 850;
+      }
+
+      .package-fit {
+        padding: 12px 14px;
+        color: var(--ink);
+        background: #fff8ed;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-weight: 780;
+        line-height: 1.48;
       }
 
       .package p,
@@ -772,12 +894,16 @@
         .hero-inner,
         .section-head,
         .build-grid,
+        .about-grid,
         .contact {
           grid-template-columns: 1fr;
         }
 
         .specialty-grid,
-        .process-strip {
+        .process-strip,
+        .proof-grid,
+        .care-grid,
+        .faq-grid {
           grid-template-columns: repeat(2, 1fr);
         }
 
@@ -789,6 +915,15 @@
         .build-image {
           position: static;
           min-height: 420px;
+        }
+
+        .about-image {
+          min-height: 380px;
+        }
+
+        .cta-band-inner {
+          align-items: flex-start;
+          flex-direction: column;
         }
       }
 
@@ -818,6 +953,9 @@
         .style-grid,
         .package-grid,
         .process-strip,
+        .proof-grid,
+        .care-grid,
+        .faq-grid,
         .form-row {
           grid-template-columns: 1fr;
         }
@@ -852,6 +990,8 @@
         <a href="#stilar">Stilar</a>
         <a href="#bygge">Innehåll</a>
         <a href="#paket">Paket</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#kontakt" class="nav-cta">Skicka brief</a>
       </div>
     </nav>
@@ -861,26 +1001,25 @@
         <div class="hero-inner">
           <div>
             <p class="eyebrow">Hemsidor för lokala företag och varumärken</p>
-            <h1>Din sida ska kännas rätt direkt.</h1>
+            <h1>Moderna hemsidor för småföretag.</h1>
             <p class="hero-copy">
-              Jag designar hemsidor för företag som behöver bli förstådda snabbt: restauranger,
-              salonger, butiker, kreatörer, konsulter och lokala tjänster. Sidan ska inte bara
-              vara snygg. Den ska visa vad du erbjuder, skapa förtroende och göra nästa steg
-              enkelt.
+              Jag bygger tydliga hemsidor för restauranger, salonger, butiker, kreatörer,
+              konsulter och lokala tjänster. Start från 1 490 kr plus abonnemang. Målet är
+              enkelt: visa vad du erbjuder, skapa förtroende och göra det lätt att ta kontakt.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#stilar">Se stilspår</a>
+              <a class="button" href="#paket">Se paket och priser</a>
               <a class="button secondary" href="#kontakt">Berätta om företaget</a>
             </div>
           </div>
 
           <aside class="menu-note" aria-label="Exempel på prioriteringar">
-            <small>Det jag prioriterar</small>
+            <small>Snabb överblick</small>
             <ul>
-              <li><strong>Erbjudande</strong><span>lätt att förstå</span></li>
-              <li><strong>Kontakt</strong><span>alltid nära</span></li>
-              <li><strong>Förtroende</strong><span>tydligt och äkta</span></li>
-              <li><strong>Känsla</strong><span>bild, färg och ton</span></li>
+              <li><strong>Från</strong><span>1 490 kr</span></li>
+              <li><strong>Passar</strong><span>småföretag</span></li>
+              <li><strong>Ingår</strong><span>design + publicering</span></li>
+              <li><strong>Efteråt</strong><span>underhåll via abonnemang</span></li>
             </ul>
           </aside>
         </div>
@@ -1021,6 +1160,55 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Trygghet utan påhittade recensioner.</h2>
+            <p class="lead">
+              Om du inte har färdiga kundcase än kan sidan ändå bygga förtroende. Den kan visa
+              exempelsidor, tydliga paket, arbetsprocess och exakt vad kunden får innan de hör av sig.
+            </p>
+          </div>
+
+          <div class="proof-grid">
+            <article class="proof-card">
+              <strong>01</strong>
+              <h3>Exempelsidor</h3>
+              <p>Besökaren kan klicka in på demo-sidor och se hur olika nivåer faktiskt kan se ut.</p>
+            </article>
+            <article class="proof-card">
+              <strong>02</strong>
+              <h3>Tydliga villkor</h3>
+              <p>Startpris, abonnemang och paket visas öppet så kunden slipper gissa.</p>
+            </article>
+            <article class="proof-card">
+              <strong>03</strong>
+              <h3>Konkreta nästa steg</h3>
+              <p>Formuläret samlar rätt information direkt: paket, tidsplan, material och projektmål.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="om">
+        <div class="section-inner about-grid">
+          <div class="about-image" role="img" aria-label="Arbetsbord med dator, skissblock och designmaterial"></div>
+          <div>
+            <p class="eyebrow">Om Dayani Studio</p>
+            <h2>Personlig hjälp, inte en anonym mall.</h2>
+            <p class="lead">
+              Jag hjälper småföretag att få en hemsida som känns genomtänkt från första skärmen.
+              Det handlar om struktur, text, känsla och tydliga vägar till kontakt.
+            </p>
+            <ul class="about-list">
+              <li>Jag kan hjälpa dig välja vad som ska stå på sidan, inte bara bygga designen.</li>
+              <li>Du får en första version att reagera på, sedan justerar vi tills riktningen sitter.</li>
+              <li>Sidan byggs för att vara enkel att förstå på mobil, där många kunder börjar.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section packages" id="paket">
         <div class="section-inner">
           <div class="section-head">
@@ -1037,6 +1225,7 @@
               <h3>Start</h3>
               <div class="price">fr. 1 490 kr</div>
               <p class="price-note">+ obligatoriskt abonnemang 299 kr/mån</p>
+              <p class="package-fit">För enkla hemsidor där kunden snabbt ska hitta information och kontakta dig.</p>
               <p>För dig som behöver en tydlig 1-sides hemsida med rätt information på plats.</p>
               <ul>
                 <li>1 sida</li>
@@ -1056,6 +1245,7 @@
               <h3>Standard</h3>
               <div class="price">fr. 3 900 kr</div>
               <p class="price-note">+ obligatoriskt abonnemang 499 kr/mån</p>
+              <p class="package-fit">För restauranger, salonger, butiker och tjänsteföretag med flera erbjudanden.</p>
               <p>För verksamheter som vill ha en mer komplett hemsida med tydlig struktur.</p>
               <ul>
                 <li>Upp till 5 sidor</li>
@@ -1076,6 +1266,7 @@
               <h3>Premium</h3>
               <div class="price">fr. 7 900 kr</div>
               <p class="price-note">+ obligatoriskt abonnemang 849 kr/mån</p>
+              <p class="package-fit">För varumärken som vill visa mer känsla, case, process och starkare förtroende.</p>
               <p>För verksamheter som vill ha en större hemsida med mer innehåll och starkare känsla.</p>
               <ul>
                 <li>Upp till 10 sidor</li>
@@ -1090,31 +1281,132 @@
                 <a class="button secondary" href="#kontakt" data-package="Premium">Be om offert</a>
               </div>
             </article>
+
+            <article class="package">
+              <span class="tag">Företag</span>
+              <h3>Enterprise</h3>
+              <div class="price range">10 000-50 000 kr</div>
+              <p class="price-note">Pris beroende på uppgift och omfattning</p>
+              <p class="package-fit">För större företag, specialfunktioner, fler sidor och mer omfattande projekt.</p>
+              <p>För större företag som behöver mer innehåll, fler funktioner eller en mer specialbyggd lösning.</p>
+              <ul>
+                <li>Fler sidor och mer avancerad struktur</li>
+                <li>Specialsektioner eller anpassade funktioner</li>
+                <li>Mer omfattande strategi, text och design</li>
+                <li>Integrationer, formulär eller kampanjsidor</li>
+                <li>Planering utifrån företagets mål och arbetsflöde</li>
+                <li>Offert efter genomgång av uppgiften</li>
+              </ul>
+              <div class="package-actions">
+                <a class="button secondary" href="#kontakt" data-package="Enterprise">Begär företagsförslag</a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="process-strip" aria-label="Process">
+      <section class="cta-band" aria-label="Kontakt efter paket">
+        <div class="cta-band-inner">
+          <div>
+            <h2>Osäker på paket?</h2>
+            <p>
+              Skicka en kort brief ändå. Jag kan föreslå om Start, Standard, Premium eller Enterprise
+              passar bäst utifrån antal sidor, material, funktioner och hur snabbt sidan behöver bli klar.
+            </p>
+          </div>
+          <a class="button" href="#kontakt">Få rekommendation</a>
+        </div>
+      </section>
+
+      <section class="process-strip" id="process" aria-label="Process">
         <article class="process-step">
           <span>1</span>
-          <h3>Råvaror</h3>
-          <p>Du skickar texter, bilder, öppettider, tjänster och länkar som redan finns.</p>
+          <h3>Vi pratar om behov</h3>
+          <p>Du berättar vad sidan ska göra, vilka kunder du vill nå och vilket material som finns.</p>
         </article>
         <article class="process-step">
           <span>2</span>
-          <h3>Smakprov</h3>
-          <p>Jag tar fram riktning, struktur och första version att reagera på.</p>
+          <h3>Första versionen byggs</h3>
+          <p>Jag tar fram struktur, textflöde, visuell riktning och en första fungerande version.</p>
         </article>
         <article class="process-step">
           <span>3</span>
-          <h3>Finputs</h3>
-          <p>Vi justerar text, bilder, knappar och detaljer tills sidan känns rätt.</p>
+          <h3>Du ger feedback</h3>
+          <p>Vi justerar text, bilder, knappar och detaljer tills sidan känns rätt för verksamheten.</p>
         </article>
         <article class="process-step">
           <span>4</span>
-          <h3>Servering</h3>
-          <p>Sidan publiceras och du får en tydlig genomgång av vad som är klart.</p>
+          <h3>Sidan publiceras</h3>
+          <p>Jag hjälper till med lansering och ser till att kontaktvägar, länkar och mobilvy fungerar.</p>
         </article>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Efter lansering finns hjälp kvar.</h2>
+            <p class="lead">
+              Abonnemanget gör att sidan inte lämnas ensam efter publicering. Du kan få hjälp med
+              enklare ändringar, mindre uppdateringar och att hålla informationen fräsch över tid.
+            </p>
+          </div>
+
+          <div class="care-grid">
+            <article class="care-card">
+              <strong>U</strong>
+              <h3>Uppdateringar</h3>
+              <p>Byt texter, öppettider, bilder, priser eller mindre delar när verksamheten ändras.</p>
+            </article>
+            <article class="care-card">
+              <strong>D</strong>
+              <h3>Drift</h3>
+              <p>Jag hjälper till med publicering, länkar och praktiska detaljer runt hemsidan.</p>
+            </article>
+            <article class="care-card">
+              <strong>R</strong>
+              <h3>Rådgivning</h3>
+              <p>Du kan fråga innan du lägger till nya sektioner, kampanjer eller funktioner.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Vanliga frågor.</h2>
+            <p class="lead">
+              Svaren gör det enklare att förstå vad som krävs innan ett projekt startar.
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <article class="faq-card">
+              <h3>Hur lång tid tar det?</h3>
+              <p>En enklare sida kan ofta gå snabbare. En större sida tar längre tid beroende på antal sidor, material och feedback.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Behöver jag ha bilder och text?</h3>
+              <p>Det hjälper, men du måste inte ha allt klart. Jag kan hjälpa dig strukturera innehållet och säga vad som saknas.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Ingår custom domain?</h3>
+              <p>Ja, custom domain ingår så sidan kan få en egen adress som passar företaget. Jag hjälper dig också få det rätt vid publicering.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Kan jag ändra sidan senare?</h3>
+              <p>Ja. Abonnemanget finns för att enklare ändringar och uppdateringar ska kunna göras efter lansering.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Vad kostar extra ändringar?</h3>
+              <p>Mindre ändringar kan ingå i abonnemanget. Större nya sektioner, sidor eller funktioner offereras separat.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Kan du koppla bokning eller formulär?</h3>
+              <p>Ja, länkar till bokning, karta, sociala medier och enklare formulär kan byggas in efter behov.</p>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="kontakt">
@@ -1139,6 +1431,21 @@
               </div>
               <div class="form-row">
                 <label>
+                  Telefon
+                  <input name="telefon" autocomplete="tel" />
+                </label>
+                <label>
+                  När vill du ha sidan klar?
+                  <select name="tidsplan">
+                    <option>Så snart som möjligt</option>
+                    <option>Inom 2-4 veckor</option>
+                    <option>Inom 1-2 månader</option>
+                    <option>Jag är flexibel</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
                   Verksamhet
                   <select name="verksamhet">
                     <option>Lokalt tjänsteföretag</option>
@@ -1155,20 +1462,32 @@
                     <option>Start</option>
                     <option>Standard</option>
                     <option>Premium</option>
+                    <option>Enterprise</option>
                     <option>Jag vill ha råd</option>
                   </select>
                 </label>
               </div>
-              <label>
-                Visuell riktning
-                <select name="kansla">
-                  <option>Varm och lokal</option>
-                  <option>Färgstark och energisk</option>
-                  <option>Professionell och trygg</option>
-                  <option>Ren och modern</option>
-                  <option>Jag vill att du föreslår</option>
-                </select>
-              </label>
+              <div class="form-row">
+                <label>
+                  Visuell riktning
+                  <select name="kansla">
+                    <option>Varm och lokal</option>
+                    <option>Färgstark och energisk</option>
+                    <option>Professionell och trygg</option>
+                    <option>Ren och modern</option>
+                    <option>Jag vill att du föreslår</option>
+                  </select>
+                </label>
+                <label>
+                  Material
+                  <select name="material">
+                    <option>Jag har text och bilder</option>
+                    <option>Jag har bilder men behöver hjälp med text</option>
+                    <option>Jag har text men behöver hjälp med bilder</option>
+                    <option>Jag behöver hjälp med det mesta</option>
+                  </select>
+                </label>
+              </div>
               <label>
                 Kort om projektet
                 <textarea
@@ -1192,7 +1511,7 @@
             <ul class="contact-list">
               <li><span>Erbjudande</span><strong>Tjänster, produkter, meny</strong></li>
               <li><span>Bilder</span><strong>Lokal, arbete, team</strong></li>
-              <li><span>Kontakt</span><strong>Länk eller önskat flöde</strong></li>
+              <li><span>Flöde</span><strong>Bokning, köp eller formulär</strong></li>
               <li><span>Kontakt</span><strong>Adress, telefon, tider</strong></li>
             </ul>
           </aside>
@@ -1217,7 +1536,7 @@
       });
 
       const revealItems = document.querySelectorAll(
-        ".section-head, .specialty, .style-card, .feature, .package, .process-step, .contact-main, .contact-side",
+        ".section-head, .specialty, .style-card, .feature, .proof-card, .about-grid, .package, .cta-band-inner, .process-step, .care-card, .faq-card, .contact-main, .contact-side",
       );
 
       revealItems.forEach((item, index) => {
@@ -1247,9 +1566,12 @@
         const body = [
           `Namn eller företag: ${data.get("namn")}`,
           `E-post: ${data.get("epost")}`,
+          `Telefon: ${data.get("telefon")}`,
+          `Tidsplan: ${data.get("tidsplan")}`,
           `Verksamhet: ${data.get("verksamhet")}`,
           `Paket: ${data.get("paket")}`,
           `Visuell riktning: ${data.get("kansla")}`,
+          `Material: ${data.get("material")}`,
           "",
           "Kort om projektet:",
           data.get("projekt"),
